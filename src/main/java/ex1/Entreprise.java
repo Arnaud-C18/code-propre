@@ -5,16 +5,16 @@ import java.util.Date;
 /** Représente une entreprise */
 public class Entreprise {
 
-	/** Numero de SIRET de l'entreprise */
-	public int Siret;
+	/** Numero de SIRET */
+	public int siret;
 
-	/** Nom de l'entreprise */
-	public String Nom;
+	/** Nom */
+	public String nom;
 
-	/** Adresse de l'entreprise */
+	/** Adresse */
 	public String adresse;
 
-	/** Date de création de l'entreprise */
+	/** Date de création */
 	public Date dateCreation;
 
 	/** Capital maximum de l'entreprise */
@@ -22,6 +22,7 @@ public class Entreprise {
 
 	/** Affichage du statut de l'entreprise */
 	public void afficherStatut(){
+		System.out.println(siret + " " + nom + " " + adresse + " " + dateCreation);
 		
 	}
 	

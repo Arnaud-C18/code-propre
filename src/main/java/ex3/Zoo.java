@@ -1,49 +1,48 @@
 package ex3;
+
+import java.util.ArrayList;
+
 public class Zoo {
 
-	private String nom;
-	private SavaneAfricaine savaneAfricaine;
-	private ZoneCarnivore zoneCarnivore;
-	private FermeReptile fermeReptile;
-	private Aquarium aquarium;
-	
-	public Zoo(String nom){
-		this.nom = nom;
-	}
-	
-	public void addAnimal(String nomAnimal, String typeAnimal, String comportement){
-		if (typeAnimal.equals("MAMMIFERE") && comportement.equals("CARNIVORE")){
-			zoneCarnivore.addAnimal(typeAnimal, nomAnimal, comportement);
-		}
-		else if (typeAnimal.equals("MAMMIFERE") && comportement.equals("HERBIVORE")){
-			savaneAfricaine.addAnimal(typeAnimal, nomAnimal, comportement);
-		}
-		else if (typeAnimal.equals("REPTILE")){
-			fermeReptile.addAnimal(typeAnimal, nomAnimal, comportement);
-		}
-		else if (typeAnimal.equals("POISSON")){
-			aquarium.addAnimal(typeAnimal, nomAnimal, comportement);
-		}
-	}
-	
-	public void afficherListeAnimaux(){
-		savaneAfricaine.afficherListeAnimaux();
-		zoneCarnivore.afficherListeAnimaux();
-		fermeReptile.afficherListeAnimaux();
-		aquarium.afficherListeAnimaux();
-	}
+	/** nom du zoo */
+    private String nom;
 
-	/** Getter for nom
-	 * @return the nom
-	 */
-	public String getNom() {
-		return nom;
-	}
+	/** liste des animaux presents dans le zoo */
+	ArrayList<Animal> listeAnimaux = new ArrayList<>();
 
-	/** Setter
-	 * @param nom the nom to set
-	 */
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
+
+    public Zoo(String nom) {
+        this.nom = nom;
+    }
+
+    /**Ajouter un animal a la liste du zoo
+     *
+     * @param nom nom de l'animal
+     * @param type type d'animal
+     * @param comportement comportement de l'animal
+     */
+    public void addAnimal(String nom, String type, String comportement) {
+        listeAnimaux.add(new Animal(nom, type, comportement));
+    }
+
+    /** Afficher la liste des animaux presents dans le zoo */
+    public void afficherListeAnimaux() {
+		for ( Animal animal : listeAnimaux) {
+			System.out.println(animal.nom + " " + animal.type + " " + animal.comportement);
+		}
+    }
+
+    /**Getter
+	 * @return le nom
+     */
+    public String getNom() {
+        return nom;
+    }
+
+    /**Setter
+	 * @param nom le nom a modifier
+     */
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
 }
